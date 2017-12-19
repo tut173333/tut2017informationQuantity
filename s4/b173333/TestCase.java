@@ -3,22 +3,27 @@ import java.lang.*;
 import s4.specification.*;
 
 /*
-interface FrequencerInterface {     // This interface provides the design for frequency counter.
-    void setTarget(byte[]  target); // set the data to search.
-    void setSpace(byte[]  space);  // set the data to be searched target from.
+interface FrequencerInterface {     // このインタフェースは、周波数カウンタの設計を提供します
+    void setTarget(byte[]  target); // 検索するデータを設定します。
+    void setSpace(byte[]  space);  // 検索対象となるデータを設定してください。
     int frequency(); //It return -1, when TARGET is not set or TARGET's length is zero
                     //Otherwise, it return 0, when SPACE is not set or Space's length is zero
-                    //Otherwise, get the frequency of TAGET in SPACE
+					//Otherwise, get the frequency of TAGET in SPACE
+					//TARGETが設定されていないか、TARGETの長さがゼロの場合は-1を返し,
+					//それ以外の場合は0を返します。スペースが設定されていないかスペースの長さが0の場合は、
     int subByteFrequency(int start, int end);
-    // get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
-    // For the incorrect value of START or END, the behavior is undefined.
+	// get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
+	//ターゲット[開始]、タグセット[開始+ 1]、...、ターゲット[終了-1]などのタグセットのサブバイトの頻度を取得します。
+	// For the incorrect value of START or END, the behavior is undefined.
+	//For the incorrect value of START or END, the behavior is undefined.
 }
 */
 
 /*
 package s4.specification;
 public interface InformationEstimatorInterface{
-    void setTarget(byte target[]); // set the data for computing the information quantities
+	void setTarget(byte target[]); // set the data for computing the information quantities
+	//情報量を算出するためのデータを設定する
     void setSpace(byte space[]); // set data for sample space to computer probability
     double estimation(); // It returns 0.0 when the target is not set or Target's length is zero;
 // It returns Double.MAX_VALUE, when the true value is infinite, or space is not set.
@@ -40,12 +45,18 @@ public class TestCase {
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		//targetが"o"
+		myObject.setTarget("o".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("\"o\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+	
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
