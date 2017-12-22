@@ -15,7 +15,9 @@ interface FrequencerInterface {     // このインタフェースは、周波�
 	// get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
 	//ターゲット[開始]、タグセット[開始+ 1]、...、ターゲット[終了-1]などのタグセットのサブバイトの頻度を取得します。
 	// For the incorrect value of START or END, the behavior is undefined.
+	//STARTまたはENDの値が正しくない場合の動作は未定義です。
 	//For the incorrect value of START or END, the behavior is undefined.
+	//STARTまたはENDの値が正しくない場合の動作は未定義です。
 }
 */
 
@@ -46,11 +48,45 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 		if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-		//targetが"o"
-		myObject.setTarget("o".getBytes());
+
+		//targetが"HHi"
+		myObject = new s4.b173333.Frequencer();
+		myObject.setSpace("Hi Ho Hi Ho".getBytes());
+		myObject.setTarget("Hoi".getBytes());
 	    freq = myObject.frequency();
-	    System.out.print("\"o\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-	    if(2 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	    System.out.print("\"Hoi\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		//targetの長さが0の場合
+		myObject = new s4.b173333.Frequencer();
+		myObject.setSpace("HiHiHHii".getBytes());
+		myObject.setTarget("".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("freq = "+freq+"  ");
+		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		//Spaceの長さが0場合
+		myObject = new s4.b173333.Frequencer();
+		myObject.setSpace("".getBytes());
+		myObject.setTarget("Hi".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("freq = "+freq+"  ");
+		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+		
+		//targetをセットしない場合
+		myObject = new s4.b173333.Frequencer();
+		myObject.setSpace("HiHiHHii".getBytes());
+		
+	    freq = myObject.frequency();
+	    System.out.print("freq = "+freq+"  ");
+		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+
+		//Spaceをセットしない場合
+		myObject = new s4.b173333.Frequencer();
+		myObject.setTarget("Hi".getBytes());
+	    freq = myObject.frequency();
+	    System.out.print("freq = "+freq+"  ");
+	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
@@ -74,7 +110,13 @@ public class TestCase {
 	    System.out.println(">0123 "+value);
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
-	    System.out.println(">00 "+value);
+		System.out.println(">00 "+value);
+		//testcase add
+		myObject = new s4.b173333.InformationEstimator();
+		// myObject.setSpace("3210321001230123".getBytes());
+	    myObject.setTarget("".getBytes());
+	    value = myObject.estimation();
+	    System.out.println("> "+value);
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");

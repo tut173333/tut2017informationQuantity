@@ -14,26 +14,38 @@ interface FrequencerInterface {     // This interface provides the design for fr
     // For the incorrect value of START or END, the behavior is undefined.
 */
 
-
 public class Frequencer implements FrequencerInterface{
     // Code to Test, *warning: This code  contains intentional problem*
     byte [] myTarget;
-    byte [] mySpace;
+	byte [] mySpace;
     public void setTarget(byte [] target) { myTarget = target;}
     public void setSpace(byte []space) { mySpace = space; }
     public int frequency() {
-	int targetLength = myTarget.length;
-	int spaceLength = mySpace.length;
+		int targetLength;
+		int spaceLength;
+		try{
+	targetLength = myTarget.length;
+		}catch(Exception e){
+			return -1;
+		}
+		try{
+	spaceLength = mySpace.length;
+		}catch(Exception e){
+			return 0;
+		}
 	int count = 0;
+	if(myTarget.length == 0){return -1;}
+	else if(mySpace.length == 0){return 0;}
+
 	for(int start = 0; start<spaceLength; start++) { // Is it OK?
 	    boolean abort = false;
 	    for(int i = 0; i<targetLength; i++) {
-		if(myTarget[i] != mySpace[start+i]) { abort = true; break; }
+		if(spaceLength==start+i||myTarget[i] != mySpace[start+i]) { abort = true; break; }
 	    }
 	    if(abort == false) { count++; }
 	}
 	return count;
-    }
+}
 
     // I know that here is a potential problem in the declaration.
     public int subByteFrequency(int start, int length) { 

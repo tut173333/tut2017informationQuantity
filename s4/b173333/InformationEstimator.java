@@ -41,9 +41,15 @@ public class InformationEstimator implements InformationEstimatorInterface{
     }
 
     public double estimation(){
+	try{
+		if(myTarget.length == 0){return 0.0;}
+		}catch(Exception e){
+			return 0.0;
+	}
 	boolean [] partition = new boolean[myTarget.length+1];
-	int np;
+	int np=0;
 	np = 1<<(myTarget.length-1);
+	
 	// System.out.println("np="+np+" length="+myTarget.length);
 	double value = Double.MAX_VALUE; // value = mininimum of each "value1".
 
@@ -71,7 +77,9 @@ public class InformationEstimator implements InformationEstimatorInterface{
 		    end++;
 		}
 		// System.out.print("("+start+","+end+")");
+		try{
 		myFrequencer.setTarget(subBytes(myTarget, start, end));
+		}catch(Exception e){return Double.MAX_VALUE;}
 		value1 = value1 + iq(myFrequencer.frequency());
 		start = end;
 	    }
