@@ -128,7 +128,7 @@ public class Frequencer implements FrequencerInterface{
 		// 			suffixArray[j] = tmp;
 		// 		}
 		// 	}
-		// 	//  printSuffixArray();
+			//  printSuffixArray();
 		// }
 
 		/* Example from "Hi Ho Hi Ho"
