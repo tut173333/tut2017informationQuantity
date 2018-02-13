@@ -49,78 +49,78 @@ public class TestCase {
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 		if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 
-		//targetが"HHi"
-		myObject = new s4.b173333.Frequencer();
-		myObject.setSpace("Hi Ho Hi Ho".getBytes());
-		myObject.setTarget("Hoi".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("\"Hoi\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
-		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	// 	//targetが"HHi"
+	// 	myObject = new s4.b173333.Frequencer();
+	// 	myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	// 	myObject.setTarget("Hoi".getBytes());
+	//     freq = myObject.frequency();
+	//     System.out.print("\"Hoi\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
+	// 	if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 
-		//targetの長さが0の場合
-		myObject = new s4.b173333.Frequencer();
-		myObject.setSpace("HiHiHHii".getBytes());
-		myObject.setTarget("".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("freq = "+freq+"  ");
-		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	// 	//targetの長さが0の場合
+	// 	myObject = new s4.b173333.Frequencer();
+	// 	myObject.setSpace("HiHiHHii".getBytes());
+	// 	myObject.setTarget("".getBytes());
+	//     freq = myObject.frequency();
+	//     System.out.print("freq = "+freq+"  ");
+	// 	if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 
-		//Spaceの長さが0場合
-		myObject = new s4.b173333.Frequencer();
-		myObject.setSpace("".getBytes());
-		myObject.setTarget("Hi".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("freq = "+freq+"  ");
-		if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	// 	//Spaceの長さが0場合
+	// 	myObject = new s4.b173333.Frequencer();
+	// 	myObject.setSpace("".getBytes());
+	// 	myObject.setTarget("Hi".getBytes());
+	//     freq = myObject.frequency();
+	//     System.out.print("freq = "+freq+"  ");
+	// 	if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 		
-		//targetをセットしない場合
-		myObject = new s4.b173333.Frequencer();
-		myObject.setSpace("HiHiHHii".getBytes());
+	// 	//targetをセットしない場合
+	// 	myObject = new s4.b173333.Frequencer();
+	// 	myObject.setSpace("HiHiHHii".getBytes());
 		
-	    freq = myObject.frequency();
-	    System.out.print("freq = "+freq+"  ");
-		if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	//     freq = myObject.frequency();
+	//     System.out.print("freq = "+freq+"  ");
+	// 	if(-1 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 
-		//Spaceをセットしない場合
-		myObject = new s4.b173333.Frequencer();
-		myObject.setTarget("Hi".getBytes());
-	    freq = myObject.frequency();
-	    System.out.print("freq = "+freq+"  ");
-	    if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
+	// 	//Spaceをセットしない場合
+	// 	myObject = new s4.b173333.Frequencer();
+	// 	myObject.setTarget("Hi".getBytes());
+	//     freq = myObject.frequency();
+	//     System.out.print("freq = "+freq+"  ");
+	//     if(0 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
 	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
 
 	
-	try {
-	    InformationEstimatorInterface myObject;
-	    double value;
-	    System.out.println("checking s4.b173333.InformationEstimator");
-	    myObject = new s4.b173333.InformationEstimator();
-	    myObject.setSpace("3210321001230123".getBytes());
-	    myObject.setTarget("0".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0 "+value);
-	    myObject.setTarget("01".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">01 "+value);
-	    myObject.setTarget("0123".getBytes());
-	    value = myObject.estimation();
-	    System.out.println(">0123 "+value);
-	    myObject.setTarget("00".getBytes());
-	    value = myObject.estimation();
-		System.out.println(">00 "+value);
-		//testcase add
-		myObject = new s4.b173333.InformationEstimator();
-		// myObject.setSpace("3210321001230123".getBytes());
-	    myObject.setTarget("".getBytes());
-	    value = myObject.estimation();
-	    System.out.println("> "+value);
-	}
-	catch(Exception e) {
-	    System.out.println("Exception occurred: STOP");
-	}
+	// try {
+	//     InformationEstimatorInterface myObject;
+	//     double value;
+	//     System.out.println("checking s4.b173333.InformationEstimator");
+	//     myObject = new s4.b173333.InformationEstimator();
+	//     myObject.setSpace("3210321001230123".getBytes());
+	//     myObject.setTarget("0".getBytes());
+	//     value = myObject.estimation();
+	//     System.out.println(">0 "+value);
+	//     myObject.setTarget("01".getBytes());
+	//     value = myObject.estimation();
+	//     System.out.println(">01 "+value);
+	//     myObject.setTarget("0123".getBytes());
+	//     value = myObject.estimation();
+	//     System.out.println(">0123 "+value);
+	//     myObject.setTarget("00".getBytes());
+	//     value = myObject.estimation();
+	// 	System.out.println(">00 "+value);
+	// 	//testcase add
+	// 	myObject = new s4.b173333.InformationEstimator();
+	// 	// myObject.setSpace("3210321001230123".getBytes());
+	//     myObject.setTarget("".getBytes());
+	//     value = myObject.estimation();
+	//     System.out.println("> "+value);
+	// }
+	// catch(Exception e) {
+	//     System.out.println("Exception occurred: STOP");
+	// }
 
     }
 }	    
